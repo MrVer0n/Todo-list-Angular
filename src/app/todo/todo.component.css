@@ -1,0 +1,27 @@
+li{
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border:2px solid green;
+    padding: 24px;
+    height: 80px;
+
+}
+.done-block{
+    background-color: rgba(0, 128, 0, 0.11);
+}
+.done-text{
+    text-decoration: line-through;
+}
+button {
+    height: 30px;
+    float: right;
+}
+.text{
+    color: black !important;
+}
+h3 {
+    padding-top: 60px;
+    text-align: center;
+}
