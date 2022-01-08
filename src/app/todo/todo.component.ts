@@ -9,8 +9,18 @@ import { TodoService } from '../shared/todos.service';
 export class TodoComponent implements OnInit {
 
   constructor(public todosService: TodoService) { }
+  public load: boolean = false
 
   ngOnInit(): void {
+     console.log(this.todosService.todos);
+    
+    this.todosService.todoFetch().subscribe(()=> {
+      this.load = true
+      console.log(this.todosService.todos);
+    })
+    
+ 
+    
   }
 
   onChenge(id: number){

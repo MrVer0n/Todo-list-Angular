@@ -1,14 +1,28 @@
-<ul *ngIf="todosService.todos.length; else nullTodo">
-    <li [class.done-block]="todo.check" *ngFor="let todo of todosService.todos; let idx = index">
-    <label class="text">
-        <input type="checkbox" [checked]="todo.check" (change)="onChenge(todo.id)"  />
-            <span [class.done-text]="todo.check">
-                <b>{{idx + 1}}</b> {{todo.title}}
-            </span>
-    </label>
-        <button (click)="removeTodo(todo.id)" class="waves-effect waves-light btn-small"> <i class="material-icons">delete</i></button>    
-    </li>
-</ul>
-<ng-template #nullTodo>
-    <h3>Список пуст</h3>
-</ng-template>
+<div *ngIf="load">
+    <ul *ngIf="todosService.todos.length; else nullTodo">
+        <li [class.done-block]="todo.completed" *ngFor="let todo of todosService.todos; let idx = index">
+        <label class="text">
+            <input type="checkbox" [checked]="todo.completed" (change)="onChenge(todo.id)"  />
+                <span [class.done-text]="todo.completed">
+                    <b>{{todo.id}}</b> {{todo.title}}
+                </span>
+        </label>
+            <button (click)="removeTodo(todo.id)" class="waves-effect waves-light btn-small"> <i class="material-icons">delete</i></button>    
+        </li>
+    </ul>
+    <ng-template #nullTodo>
+        <h3>Список пуст</h3>
+    </ng-template>
+</div>
+
+<div *ngIf="!load" class="load preloader-wrapper big active">
+    <div class="spinner-layer spinner-green-only">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div><div class="gap-patch">
+        <div class="circle"></div>
+      </div><div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,12 @@
+    <div class="add-form file-field input-field">
+        <a class="waves-effect waves-light btn" (click)="onAdd()">Add</a>
+      <div class="file-path-wrapper">
+        <input 
+        class="file-path validate" 
+        type="text" 
+        placeholder="Enter the task"
+        [(ngModel)]="title" 
+        (keydown.enter)="onAdd()"
+        />
+      </div>
+    </div>
