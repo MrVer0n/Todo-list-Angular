@@ -2,8 +2,10 @@
     <div class="login__body z-depth-1 grey lighten-4 row"
         style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
         <div [ngSwitch]="incorrect" class="login__incorrect-blog">
-            <p *ngSwitchCase="false" class="login__incorrect_correct">Войдите в свою учетную запись</p>
-            <p *ngSwitchCase="true" class="login__incorrect_incorrect">Неверный логин или пароль</p>
+            <p class="login__info">Авторизация</p>
+            <p *ngSwitchDefault><br/></p>
+            <p *ngSwitchCase="1" class="login__info_correct">Заполните все поля</p>
+            <p *ngSwitchCase="2" class="login__info_incorrect">Неверный логин или пароль</p>
         </div>
         <form class="login__form col s12" >
 

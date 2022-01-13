@@ -12,7 +12,7 @@ export class LoginFormComponent implements OnInit {
 
   login = '';
   password = '';
-  incorrect = false;
+  incorrect = 0;
 
   ngOnInit(): void {
     //this.UserService.userFetch().subscribe(() => {});
@@ -23,10 +23,10 @@ export class LoginFormComponent implements OnInit {
       if (this.UserService.verifyUser(this.login, this.password)) {
         document.location.href = '/todoList';
       } else {
-        this.incorrect = true;
+        this.incorrect = 2;
       }
     } else {
-      this.incorrect = true;
+      this.incorrect = 1;
     }
   }
 }
