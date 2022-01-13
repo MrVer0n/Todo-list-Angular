@@ -22,7 +22,7 @@ export class RegistrFormComponent implements OnInit {
   onRegistr() {
     if (this.login && this.password && this.passwordRepeat) {
         if (this.password === this.passwordRepeat) {
-          if (this.UserService.verifyUser(this.login)) {
+          if (this.UserService.verifyUser(this.login,this.password, true)) {
           document.location.href = '/todoList';
         } else this.warning = 3;
       } else this.warning = 2;

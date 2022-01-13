@@ -31,8 +31,8 @@ export class UserService {
     localStorage.setItem('id', userId.toString());
   }
 
-  verifyUser(login: string, password?: string) {
-    if (password) {
+  verifyUser(login: string, password: string, registr?:boolean) {
+    if (!registr) {
       for (let i = 0; i < this.users.length; i++) {
         if (
           this.users[i].email === login &&
@@ -49,6 +49,12 @@ export class UserService {
           return false;
         }
       }
+      const newUser: User = {
+        id:this.users[this.users.length-1].id+20,
+        email: login,
+        password
+      };
+      this.users.push(newUser)
       this.setUserId(this.users[this.users.length-1].id+20);
       return true;
     }
