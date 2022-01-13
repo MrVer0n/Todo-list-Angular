@@ -1,24 +1,38 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
 import { AddTodoComponent } from './add-todo/add-todo.component';
-import { FormsModule } from '@angular/forms';
+import { RegistrFormComponent } from './registr-form/registr-form.component';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
+const appRoutes: Routes = [
+  {path: 'login', component: LoginFormComponent},
+  {path: 'registration', component: RegistrFormComponent},
+  {path: 'todoList', component: TodoComponent},
+  {path: '**', component: NotFoundComponent}
+]
 @NgModule({
   declarations: [
     AppComponent,
     TodoComponent,
-    AddTodoComponent
+    AddTodoComponent,
+    RegistrFormComponent,
+    LoginFormComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

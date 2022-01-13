@@ -1,5 +1,11 @@
-<div>
-  <h1>Todo list on Angular</h1>
-</div>
-<app-add-todo></app-add-todo>
-<app-todo></app-todo>
+<nav>
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo">Todo</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="/login">Вход</a></li>
+      <li><a href="/registration">Регистрация</a></li>
+    </ul>
+  </div>
+</nav>
+<router-outlet></router-outlet>
+

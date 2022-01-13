@@ -1,12 +1,11 @@
-    <div class="add-form file-field input-field">
-        <a class="waves-effect waves-light btn" (click)="onAdd()">Add</a>
-      <div class="file-path-wrapper">
-        <input 
-        class="file-path validate" 
-        type="text" 
-        placeholder="Enter the task"
-        [(ngModel)]="title" 
-        (keydown.enter)="onAdd()"
-        />
-      </div>
-    </div>
+<div class="add-form file-field input-field">
+  <a class="add-form__button waves-effect waves-light btn" (click)="onAdd()">Add</a>
+  <div class="file-path-wrapper">
+    <input 
+    class="add-form__text file-path validate" 
+    type="text" 
+    placeholder="Enter the task" 
+    [(ngModel)]="title"
+    (keyup.enter)="onAdd()" />
+  </div>
+</div>

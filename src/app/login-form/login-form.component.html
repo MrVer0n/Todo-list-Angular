@@ -1,0 +1,56 @@
+<div class="login container">
+    <div class="login__body z-depth-1 grey lighten-4 row"
+        style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+        <div [ngSwitch]="incorrect" class="login__incorrect-blog">
+            <p *ngSwitchCase="false" class="login__incorrect_correct">Войдите в свою учетную запись</p>
+            <p *ngSwitchCase="true" class="login__incorrect_incorrect">Неверный логин или пароль</p>
+        </div>
+        <form class="login__form col s12" >
+
+            <div class='login__elem row'>
+                <div class='col s12'></div>
+            </div>
+
+            <div class='login__elem row'>
+                <div class='login__field input-field col s12'>
+                    <input 
+                    required 
+                    class='login__email validate' 
+                    type='email' 
+                    name='email' 
+                    id='email'  
+                    [(ngModel)]="login" />
+                    <label for='email'>Email</label>
+                </div>
+            </div>
+
+            <div class='login__elem row'>
+                <div class='login__field input-field col s12'>
+                    <input 
+                    required 
+                    class='login__password validate' 
+                    type='password' 
+                    name='password' 
+                    id='password'  
+                    [(ngModel)]="password" />
+                    <label for='password'>Password</label>
+                </div>
+                <label style='float: right;'>
+                    <a class='pink-text' href='#!'><b></b></a>
+                </label>
+            </div>
+
+            <br />
+
+            <div class='login__elem row'>
+                <button 
+                type='submit' 
+                name='btn_login'
+                class='login__button col s12 btn btn-large waves-effect indigo'
+                (click)="onLogin()"
+                >Войти</button>
+            </div>
+            
+        </form>  
+    </div>
+</div>

@@ -1,0 +1,69 @@
+<div class="registr container">
+    <div class="registr__body z-depth-1 grey lighten-4 row"
+        style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+        <div [ngSwitch]="warning" class="registr__incorrect">
+            <p *ngSwitchCase="1" class="correct">Ведите данные</p>
+            <p *ngSwitchCase="2" class="incorrect">Данная почта уже зарегистрирована</p>
+            <p *ngSwitchCase="3" class="incorrect">Пароли не совпадают</p>
+            <p *ngSwitchDefault>Регистрация</p>
+        </div>
+        <form class="registr__form col s12" >
+
+            <div class='registr__elem row'>
+                <div class='col s12'></div>
+            </div>
+
+            <div class='registr__elem row'>
+                <div class='registr__field input-field col s12'>
+                    <input 
+                    required 
+                    class='registr__email validate' 
+                    type='email' 
+                    name='email' 
+                    id='email' 
+                    autocomplete="off"  
+                    [(ngModel)]="login" />
+                    <label for='email'>Email</label>
+                </div>
+            </div>
+
+            <div class='registr__elem row'>
+                <div class='registr__field input-field col s12'>
+                    <input 
+                    required 
+                    class='registr__password validate' 
+                    type='password' 
+                    name='password' 
+                    id='password' 
+                    autocomplete="off"  
+                    [(ngModel)]="password" />
+                    <label for='password'>Password</label>
+                </div>
+                <div class='registr__field input-field col s12'>
+                    <input 
+                    required 
+                    class='registr__password validate' 
+                    type='password' 
+                    name='password-repeat' 
+                    id='password-repeat' 
+                    autocomplete="off" 
+                    [(ngModel)]="passwordRepeat" />
+                    <label for='password-repeat'>Repeat password</label>
+                </div>
+               
+            </div>
+
+            <br />
+
+            <div class='registr__elem row'>
+                <button 
+                type='submit' 
+                name='btn_login'
+                class='registr__button col s12 btn btn-large waves-effect indigo'
+                (click)="onRegistr()"
+                >Регистрация</button>
+            </div>
+
+        </form>
+    </div>
+</div>

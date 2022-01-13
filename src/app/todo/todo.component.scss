@@ -1,0 +1,36 @@
+$doneColor: rgba(0, 128, 0, 0.11);
+
+.elem-list{
+    margin: 10px 40px 0 40px;
+    border-radius: 10px;
+    border:2px solid green;
+    padding: 24px;
+    height: 80px;
+
+    &__title{
+        color: black !important;
+    }
+    &__button {
+        height: 30px;
+        float: right;
+    }
+    &__text_done{
+        text-decoration: line-through;
+    }
+    &_done{
+        @extend .elem-list;
+        background-color: $doneColor;
+    }
+}
+
+.todo_null {
+    padding-top: 60px;
+    text-align: center;
+}
+.load{
+    margin-left: 50%;
+}
+h1 {
+    padding-top: 60px;
+    text-align: center;
+}
