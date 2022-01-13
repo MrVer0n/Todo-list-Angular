@@ -2,9 +2,9 @@
     <div class="registr__body z-depth-1 grey lighten-4 row"
         style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
         <div [ngSwitch]="warning" class="registr__incorrect">
-            <p *ngSwitchCase="1" class="correct">Ведите данные</p>
-            <p *ngSwitchCase="2" class="incorrect">Данная почта уже зарегистрирована</p>
-            <p *ngSwitchCase="3" class="incorrect">Пароли не совпадают</p>
+            <p *ngSwitchCase="1" class="correct">Заполните все поля</p>
+            <p *ngSwitchCase="2" class="incorrect">Пароли не совпадают</p>
+            <p *ngSwitchCase="3" class="incorrect">Данная почта уже зарегистрирована</p>
             <p *ngSwitchDefault>Регистрация</p>
         </div>
         <form class="registr__form col s12" >

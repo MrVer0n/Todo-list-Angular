@@ -49,7 +49,7 @@ export class UserService {
           return false;
         }
       }
-      this.setUserId(this.users[this.users.length].id+1);
+      this.setUserId(this.users[this.users.length-1].id+20);
       return true;
     }
   }
