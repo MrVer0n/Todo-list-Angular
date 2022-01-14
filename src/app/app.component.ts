@@ -1,4 +1,4 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component } from '@angular/core';
 
 import { UserService } from './shared/users.service';
 
@@ -7,13 +7,13 @@ import { UserService } from './shared/users.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterViewInit  {
+export class AppComponent implements AfterContentInit  {
 
   constructor(public UserService: UserService) {}
 
   authorized = false;
 
-  ngAfterViewInit(): void {
+  ngAfterContentInit(): void {
    this.authorized = this.UserService.isAuthorized()
   }
   userExit(){
