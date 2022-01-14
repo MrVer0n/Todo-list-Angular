@@ -64,6 +64,8 @@ export class TodoService {
       data: todo,
     });
     dialogRef.afterClosed().subscribe((respons) => {
+      console.log(respons);
+      
       if (respons) {
         this.updateTodo(idx, respons);
       }

@@ -21,7 +21,7 @@ export class EditTodoComponent implements OnInit {
   }
 
   noClose(){
-    this.dilogRef.close()
+    this.dilogRef.close(false)
   }
 
   onSubmit(form:NgForm){
