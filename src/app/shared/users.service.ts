@@ -48,7 +48,7 @@ export class UserService implements CanActivate{
 
   canActivate(): boolean {
     if (!this.isAuthorized()) {
-      this.router.navigate(["login"]);
+      this.router.navigate(["/login"]);
       return false;
     }
     return true;
