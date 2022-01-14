@@ -15,6 +15,9 @@ export class LoginFormComponent implements OnInit {
   incorrect = 0;
 
   ngOnInit(): void {
+    if(this.UserService.isAuthorized()){
+      document.location.href = '/todoList';
+    }
     //this.UserService.userFetch().subscribe(() => {});
   }
 

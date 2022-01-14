@@ -16,6 +16,9 @@ export class RegistrFormComponent implements OnInit {
   warning = 0;
 
   ngOnInit(): void {
+    if(this.UserService.isAuthorized()){
+      document.location.href = '/todoList';
+    }
     //this.UserService.userFetch().subscribe(() => {});
   }
 

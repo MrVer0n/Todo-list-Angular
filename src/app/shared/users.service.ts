@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { CanActivate, Router } from '@angular/router';
 
 import { Observable, tap } from 'rxjs';
 
@@ -11,16 +12,15 @@ export interface User {
 let id:number
 
 @Injectable({ providedIn: 'root' })
-export class UserService {
-  
-  constructor(private http: HttpClient) {}
+export class UserService implements CanActivate{
+  constructor(private http: HttpClient, public router: Router) {}
 
   public users: User[] = [
     { id: 1, email: 'admin@gmail.com', password: '12345' },
     { id: 2, email: 'test@mail.ru', password: 'testPassword' },
-    { id: 3, email: 'homer99@gmail.com', password: 'simpson84' }
+    { id: 3, email: 'homer99@gmail.com', password: 'simpson84' },
   ];
-/*
+  /*
   userFetch(): Observable<User[]> {
     return this.http
       .get<User[]>(`http://localhost:3000/users`)
@@ -31,7 +31,30 @@ export class UserService {
     localStorage.setItem('id', userId.toString());
   }
 
-  verifyUser(login: string, password: string, registr?:boolean) {
+  isAuthorized(): boolean {
+    const id = localStorage.getItem('id');
+    if (id) {
+      return true;
+    }
+    return false;
+  }
+
+  userExit() {
+    const id = localStorage.getItem('id');
+    if (id) {
+      localStorage.removeItem('id');
+    }
+  }
+
+  canActivate(): boolean {
+    if (!this.isAuthorized()) {
+      this.router.navigate(["login"]);
+      return false;
+    }
+    return true;
+  }
+
+  verifyUser(login: string, password: string, registr?: boolean) {
     if (!registr) {
       for (let i = 0; i < this.users.length; i++) {
         if (
@@ -50,12 +73,12 @@ export class UserService {
         }
       }
       const newUser: User = {
-        id:this.users[this.users.length-1].id+20,
+        id: this.users[this.users.length - 1].id + 20,
         email: login,
-        password
+        password,
       };
-      this.users.push(newUser)
-      this.setUserId(this.users[this.users.length-1].id+20);
+      this.users.push(newUser);
+      this.setUserId(this.users[this.users.length - 1].id + 20);
       return true;
     }
   }

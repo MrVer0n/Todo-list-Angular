@@ -11,12 +11,13 @@ import { AddTodoComponent } from './add-todo/add-todo.component';
 import { RegistrFormComponent } from './registr-form/registr-form.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { UserService } from './shared/users.service';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'login', component: LoginFormComponent},
   {path: 'registration', component: RegistrFormComponent},
-  {path: 'todoList', component: TodoComponent},
+  {path: 'todoList', component: TodoComponent, canActivate: [UserService]},
   {path: '**', component: NotFoundComponent}
 ]
 @NgModule({
