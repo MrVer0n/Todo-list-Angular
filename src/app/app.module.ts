@@ -13,6 +13,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 const appRoutes: Routes = [
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'login', component: LoginFormComponent},
   {path: 'registration', component: RegistrFormComponent},
   {path: 'todoList', component: TodoComponent},
