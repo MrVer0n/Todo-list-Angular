@@ -2,15 +2,17 @@
   <h1>Todo list on Angular</h1>
   <app-add-todo></app-add-todo>
   <ul class="todo__todo-list todo-list" *ngIf="todosService.todos.length; else nullTodo">
-    <li class="todo-list__elem-list" [class.elem-list_done]="todo.completed" [class.elem-list]="!todo.completed" *ngFor="let todo of todosService.todos; let idx = index">
+    <li id="elem-list" class="todo-list__elem-list" [class.elem-list_done]="todo.completed" [class.elem-list]="!todo.completed" *ngFor="let todo of todosService.todos; let idx = index">
       <label class="elem-list__title">
         <input class="elem-list__check" type="checkbox" [checked]="todo.completed" (change)="onChange(todo.id)" />
         <span class="elem-list__text" [class.elem-list__text_done]="todo.completed">
           <b class="elem-list__id">{{idx+1}}</b> {{todo.title}}
         </span>
       </label>
-      <button (click)="removeTodo(todo.id)" class="elem-list__button waves-effect waves-light btn-small"> <i
-          class="elem-list__icons material-icons">delete</i></button>
+      <button (click)="removeTodo(todo.id)" class="elem-list__delete-button waves-effect waves-light btn-small teal lighten-2"> <i
+        class="elem-list__icons material-icons">delete</i></button>
+      <button (click)="todosService.editTodo(todo)" class="elem-list__edit-button waves-effect waves-light btn-small teal lighten-2"> <i
+          class="elem-list__icons material-icons">edit</i></button>
     </li>
   </ul>
   <ng-template #nullTodo>

@@ -19,6 +19,4 @@ export class AppComponent implements AfterViewInit  {
   userExit(){
     this.UserService.userExit()
   }
-
-
 }

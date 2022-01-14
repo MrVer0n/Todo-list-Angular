@@ -1,0 +1,10 @@
+.edit-todo {
+    &__button-cancel {
+        float: right;
+        margin-right: 12px;
+        color: rgb(66, 61, 61);
+    }
+    &__button-edit {
+        float: right;
+    }
+}

@@ -1,0 +1,23 @@
+<div class="edit-todo">
+    <h3 class="edit-todo__title title">Edit Todo</h3>
+    <div mat-dialog-content>
+        <form class="edit-todo__form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+            <div class="edit-todo__control control">
+                <input 
+                required 
+                minlength="1" 
+                type="text" 
+                class="edit-todo__input" 
+                [ngModel]="todo.title" name="text"/>
+            </div>
+            <div class="edit-todo__message" *ngIf="invalidTodoText">
+                <span class="edit-todo__message-info">Поля не заполнено</span>
+            </div>
+
+            <br />
+            <button type="submit" class="edit-todo__button-edit waves-effect waves-light btn"><i class="material-icons right">save</i>Сохранить</button>
+            <button class="edit-todo__button-cancel waves-effect waves-light btn teal lighten-4" (click)="noClose()">Отмена</button>
+        </form>
+
+    </div>
+</div>

@@ -6,13 +6,20 @@ $doneColor: rgba(0, 128, 0, 0.11);
     border:2px solid green;
     padding: 24px;
     height: 80px;
+    position:relative;   
 
     &__title{
         color: black !important;
     }
-    &__button {
+    &__delete-button {
+        display:none;
+        border-radius: 0 20% 20% 0;
         height: 30px;
         float: right;
+    }
+    &__edit-button {
+        @extend .elem-list__delete-button;
+        border-radius: 20% 0 0 20%;
     }
     &__text_done{
         text-decoration: line-through;
@@ -21,6 +28,16 @@ $doneColor: rgba(0, 128, 0, 0.11);
         @extend .elem-list;
         background-color: $doneColor;
     }
+}
+
+.elem-list:hover .elem-list__delete-button{
+    display: block;
+}
+.elem-list:hover .elem-list__edit-button{
+    display: block;
+}
+.elem-list:hover:not(.elem-list_done){
+    background-color: rgba(5, 131, 5, 0.027);;
 }
 
 .todo_null {
